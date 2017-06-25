@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>American Express Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="/static/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+<!-- Navigation -->
+<nav id="mainNav" class="navbar static-top navbar-toggleable-md navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#" style="font-family: 'Dancing Script', cursive; font-weight: bold">American Express <span style="color: cyan">by Satyaki Sanyal</span></a>
+    <div class="collapse navbar-collapse" id="navbarExample">
+        <ul class="sidebar-nav navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#MyChart" style="font-family: 'Dancing Script', cursive; font-weight: bold"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#MyChart" style="font-family: 'Dancing Script', cursive; font-weight: bold"><i class="fa fa-fw fa-area-chart"></i> Charts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#dataTable" style="font-family: 'Dancing Script', cursive; font-weight: bold"><i class="fa fa-fw fa-table"></i> Tables</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/logout"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="content-wrapper py-3">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active">My Dashboard</li>
+        </ol>
+
+        <!-- Icon Cards -->
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card card-inverse card-primary o-hidden h-100">
+                    <div class="card-block">
+                        <div class="card-block-icon">
+                            <i class="fa fa-fw fa-money"></i>
+                        </div>
+                        <div class="mr-5">
+                            Bill Statement
+                        </div>
+                    </div>
+                    <a href="#" class="card-footer clearfix small z-1">
+                        <span class="float-left" onclick="global_val(0)">View Graph</span>
+                        <span class="float-right"><i class="fa fa-angle-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3" style="opacity: 0">
+                <div class="card card-inverse card-success o-hidden h-100">
+                    <div class="card-block">
+                        <div class="card-block-icon">
+                            <i class="fa fa-fw fa-list"></i>
+                        </div>
+                        <div class="mr-5">
+                            11 New Tasks!
+                        </div>
+                    </div>
+                    <a href="#" class="card-footer clearfix small z-1">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right"><i class="fa fa-angle-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3" style="opacity: 0">
+                <div class="card card-inverse card-warning o-hidden h-100">
+                    <div class="card-block">
+                        <div class="card-block-icon">
+                            <i class="fa fa-fw fa-shopping-cart"></i>
+                        </div>
+                        <div class="mr-5">
+                            123 New Orders!
+                        </div>
+                    </div>
+                    <a href="#" class="card-footer clearfix small z-1">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right"><i class="fa fa-angle-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card card-inverse card-danger o-hidden h-100">
+                    <div class="card-block">
+                        <div class="card-block-icon">
+                            <i class="fa fa-fw fa-money"></i>
+                        </div>
+                        <div class="mr-5">
+                            Previous Statement
+                        </div>
+                    </div>
+                    <a href="#" class="card-footer clearfix small z-1">
+                        <span class="float-left" onclick="global_val(1)">View Graph</span>
+                        <span class="float-right"><i class="fa fa-angle-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Area Chart Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-area-chart"></i> Area Chart Example
+            </div>
+            <style>
+                iframe {
+                    width: 100%;
+                    height: 500px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+
+                    -moz-border-radius: 12px;
+                    -webkit-border-radius: 12px;
+                    border-radius: 12px;
+
+                    -moz-box-shadow: 4px 4px 14px #000;
+                    -webkit-box-shadow: 4px 4px 14px #000;
+                    box-shadow: 4px 4px 14px #000;
+
+                    -moz-transform: rotate(00deg);
+                    -webkit-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=.2);
+                }
+            </style>
+            <div class="card-block">
+                <iframe id="MyChart" src="/chart"></iframe>
+            </div>
+            <div class="card-footer small text-muted">
+                Updated yesterday at 11:59 PM
+            </div>
+        </div>
+
+
+        <!-- Example Tables Card -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i> Credit Card Data
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Graph</th>
+                            <th>Name</th>
+                            <th>Limit_Bal</th>
+                            <th>Sex</th>
+                            <th>Education</th>
+                            <th>Marriage</th>
+                            <th>Age</th>
+                            <th>PAY_0</th>
+                            <th>PAY_2
+                            <th>PAY_3
+                            <th>PAY_4</th>
+                            <th>PAY_5</th>
+                            <th>PAY_6</th>
+                            <th>BILL_AMT1</th>
+                            <th>BILL_AMT2</th>
+                            <th>BILL_AMT3</th>
+                            <th>BILL_AMT4</th>
+                            <th>BILL_AMT5</th>
+                            <th>BILL_AMT6</th>
+                            <th>PAY_AMT1</th>
+                            <th>PAY_AMT2</th>
+                            <th>PAY_AMT3</th>
+                            <th>PAY_AMT4</th>
+                            <th>PAY_AMT5</th>
+                            <th>PAY_AMT6</th>
+                            <th>Payment (N.M)</th>
+
+
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Graph</th>
+                            <th>Name</th>
+                            <th>Limit_Bal</th>
+                            <th>Sex</th>
+                            <th>Education</th>
+                            <th>Marriage</th>
+                            <th>Age</th>
+                            <th>PAY_0</th>
+                            <th>PAY_2
+                            <th>PAY_3
+                            <th>PAY_4</th>
+                            <th>PAY_5</th>
+                            <th>PAY_6</th>
+                            <th>BILL_AMT1</th>
+                            <th>BILL_AMT2</th>
+                            <th>BILL_AMT3</th>
+                            <th>BILL_AMT4</th>
+                            <th>BILL_AMT5</th>
+                            <th>BILL_AMT6</th>
+                            <th>PAY_AMT1</th>
+                            <th>PAY_AMT2</th>
+                            <th>PAY_AMT3</th>
+                            <th>PAY_AMT4</th>
+                            <th>PAY_AMT5</th>
+                            <th>PAY_AMT6</th>
+                            <th>Payment (N.M)</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <script>
+                            var url_no=1;
+                            function setURL(url, idx) {
+                                document.getElementById('MyChart').src = url;
+                                url_no = idx;
+                            }
+                            function global_val(val) {
+                                document.getElementById('MyChart').src = 'chart?id='+url_no+'&&gr='+val;
+                            }
+
+                        </script>
+                        {% for index, row in df.iterrows() %}
+                            <tr>
+                                <td>
+                                    <a onclick="setURL('chart?id={{ index }}&&gr=0', {{ index }})"
+                                       href="#">View Graph</a></td>
+                                <td>{{ row['Name'] }}</td>
+                                <td>{{ row['LIMIT_BAL'] }}</td>
+                                <td>{{ row['SEX'] }}</td>
+                                <td>{{ row['EDUCATION'] }}</td>
+                                <td>{{ row['MARRIAGE'] }}</td>
+                                <td>{{ row['AGE'] }}</td>
+                                <td>{{ row['PAY_0'] }}</td>
+                                <td>{{ row['PAY_2'] }}</td>
+                                <td>{{ row['PAY_3'] }}</td>
+                                <td>{{ row['PAY_4'] }}</td>
+                                <td>{{ row['PAY_5'] }}</td>
+                                <td>{{ row['PAY_6'] }}</td>
+                                <td>{{ row['BILL_AMT1'] }}</td>
+                                <td>{{ row['BILL_AMT2'] }}</td>
+                                <td>{{ row['BILL_AMT3'] }}</td>
+                                <td>{{ row['BILL_AMT4'] }}</td>
+                                <td>{{ row['BILL_AMT5'] }}</td>
+                                <td>{{ row['BILL_AMT6'] }}</td>
+                                <td>{{ row['PAY_AMT1'] }}</td>
+                                <td>{{ row['PAY_AMT2'] }}</td>
+                                <td>{{ row['PAY_AMT3'] }}</td>
+                                <td>{{ row['PAY_AMT4'] }}</td>
+                                <td>{{ row['PAY_AMT5'] }}</td>
+                                <td>{{ row['PAY_AMT6'] }}</td>
+                                <td>{{ row['default.payment.next.month'] }}</td>
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">
+                Updated yesterday at 11:59 PM
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /.content-wrapper -->
+
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+<!-- Bootstrap core JavaScript -->
+<script src="/static/vendor/jquery/jquery.min.js"></script>
+<script src="/static/vendor/tether/tether.min.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="/static/vendor/chart.js/Chart.min.js"></script>
+<script src="/static/vendor/datatables/jquery.dataTables.js"></script>
+<script src="/static/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="/static/js/sb-admin.min.js"></script>
+
+</body>
+
+</html>
