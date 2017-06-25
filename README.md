@@ -23,3 +23,8 @@
 ![Terminal screen_7](https://github.com/Satyaki0924/american_express_webapp_python_angular/blob/master/res/am7.png?raw=true "Terminal7")
 
 ![Terminal screen_8](https://github.com/Satyaki0924/american_express_webapp_python_angular/blob/master/res/am8.png?raw=true "Terminal8")
+
+
+
+#### Author: Satyaki Sanyal
+##### *** This project is strictly for educational purposes only. ***
