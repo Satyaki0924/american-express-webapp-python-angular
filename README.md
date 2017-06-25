@@ -1,6 +1,6 @@
 # American Express Webapp Python Angular
 
-## ** This project is a webapp shows credit card information and graphs credit card information. **
+## ** This project is a webapp which shows credit card statements and graphs the data. **
 
 ### This is the solution of a challenge hosted by American Express.
 
